@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { MapPin, Clock, Phone, ChevronDown, X } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
+import { MapPin, Clock, Phone, ChevronDown } from 'lucide-react';
+import AuthModal from '../components/AuthModal';
 import { menuItems } from '../data/mockData';
 import heroBanner from '../assets/images/hero_banner.png';
 import mochiDesserts from '../assets/images/mochi_desserts.png';
@@ -16,7 +18,22 @@ const images = {
 function HomePage() {
   const [scrolled, setScrolled] = useState(false);
   const [showModal, setShowModal] = useState(null); // 'login' | 'signup' | null
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check active sessions and sets the user
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    // Listen for changes on auth state (logged in, signed out, etc.)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,15 +54,27 @@ function HomePage() {
         <div className="navbar-links">
           <a href="#menu">메뉴</a>
           <a href="#about">매장 안내</a>
+          <Link to="/shop" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>쇼핑몰</Link>
           <a href="#instagram">인스타그램</a>
         </div>
         <div className="navbar-actions">
-          <button className="btn btn-ghost" onClick={() => setShowModal('login')} id="login-btn">
-            로그인
-          </button>
-          <button className="btn btn-primary btn-sm" onClick={() => setShowModal('signup')} id="signup-btn">
-            회원가입
-          </button>
+          {user ? (
+            <>
+              <span style={{ marginRight: '1rem', fontSize: '0.9rem' }}>{user.email}님</span>
+              <button className="btn btn-outline btn-sm" onClick={() => supabase.auth.signOut()}>
+                로그아웃
+              </button>
+            </>
+          ) : (
+            <>
+              <button className="btn btn-ghost" onClick={() => setShowModal('login')} id="login-btn">
+                로그인
+              </button>
+              <button className="btn btn-primary btn-sm" onClick={() => setShowModal('signup')} id="signup-btn">
+                회원가입
+              </button>
+            </>
+          )}
         </div>
       </nav>
 
@@ -77,6 +106,54 @@ function HomePage() {
         <div className="hero-scroll">
           <span>SCROLL</span>
           <ChevronDown size={20} />
+        </div>
+      </section>
+
+      {/* Shop Preview Section */}
+      <section className="section shop-preview-section" id="shop-preview" style={{ background: '#fcfaf8' }}>
+        <div className="section-header">
+          <div className="section-label">ONLINE SHOP</div>
+          <h2 className="section-title">모찌고 온라인 스토어</h2>
+          <p className="section-desc">
+            집에서도 간편하게, 매장에서 먹던 겉바속쫀 그대로 즐겨보세요!
+          </p>
+        </div>
+        <div className="menu-grid">
+          <div className="menu-card animate-fade-in-up" style={{ animationDelay: '0s' }}>
+            <div className="menu-card-img" style={{ background: '#f5efe6' }}>
+              <img src={mochiBungeoppang} alt="[냉동] 단팥 모찌 붕어빵 (10개입)" />
+            </div>
+            <div className="menu-card-body">
+              <h3 className="menu-card-title">[냉동] 단팥 모찌 붕어빵 (10개입)</h3>
+              <p className="menu-card-desc">에어프라이어에 5분만 돌리면 갓 구운 붕어빵 완성!</p>
+              <span className="menu-card-price">₩ 25,000</span>
+            </div>
+          </div>
+          <div className="menu-card animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
+            <div className="menu-card-img" style={{ background: '#f5efe6' }}>
+              <img src={mochiDesserts} alt="프리미엄 모찌고 선물세트" />
+            </div>
+            <div className="menu-card-body">
+              <h3 className="menu-card-title">프리미엄 모찌고 선물세트</h3>
+              <p className="menu-card-desc">소중한 분들께 마음을 전하는 특별한 패키지</p>
+              <span className="menu-card-price">₩ 35,000</span>
+            </div>
+          </div>
+          <div className="menu-card animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+            <div className="menu-card-img" style={{ background: '#f5efe6' }}>
+              <img src={bubbleTea} alt="시그니처 버블 밀크티 키트" />
+            </div>
+            <div className="menu-card-body">
+              <h3 className="menu-card-title">시그니처 버블 밀크티 키트</h3>
+              <p className="menu-card-desc">집에서도 즐기는 모찌고만의 특별한 버블티</p>
+              <span className="menu-card-price">₩ 18,000</span>
+            </div>
+          </div>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <Link to="/shop" className="btn btn-primary btn-lg">
+            쇼핑몰 전체보기
+          </Link>
         </div>
       </section>
 
@@ -217,32 +294,11 @@ function HomePage() {
       </footer>
 
       {/* Login/Signup Modal */}
-      {showModal && (
-        <div className="modal-overlay" onClick={() => setShowModal(null)}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="btn btn-ghost"
-              onClick={() => setShowModal(null)}
-              style={{ position: 'absolute', top: '12px', right: '12px' }}
-            >
-              <X size={20} />
-            </button>
-            <h2 style={{ color: 'var(--color-primary)' }}>
-              🍡 {showModal === 'login' ? '로그인' : '회원가입'}
-            </h2>
-            <p>
-              {showModal === 'login'
-                ? '모찌고 회원 로그인 페이지입니다.'
-                : '모찌고 회원가입 페이지입니다.'}
-              <br />
-              현재 준비 중인 기능입니다.
-            </p>
-            <button className="btn btn-primary" onClick={() => setShowModal(null)}>
-              확인
-            </button>
-          </div>
-        </div>
-      )}
+      <AuthModal 
+        isOpen={!!showModal} 
+        onClose={() => setShowModal(null)} 
+        initialView={showModal} 
+      />
     </div>
   );
 }
