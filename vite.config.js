@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/Mozzigo/',
+  base: process.env.GITHUB_ACTIONS ? '/Mozzigo/' : '/',
 });
