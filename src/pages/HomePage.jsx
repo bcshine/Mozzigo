@@ -54,7 +54,7 @@ function HomePage() {
         <div className="navbar-links">
           <a href="#menu">메뉴</a>
           <a href="#about">매장 안내</a>
-          <Link to="/shop" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>쇼핑몰</Link>
+          <Link to="/shop" style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>쇼핑몰</Link>
           <a href="#instagram">인스타그램</a>
         </div>
         <div className="navbar-actions">
@@ -110,7 +110,7 @@ function HomePage() {
       </section>
 
       {/* Shop Preview Section */}
-      <section className="section shop-preview-section" id="shop-preview" style={{ background: '#fcfaf8' }}>
+      <section className="section shop-preview-section" id="shop-preview" style={{ background: 'var(--color-bg-secondary)' }}>
         <div className="section-header">
           <div className="section-label">ONLINE SHOP</div>
           <h2 className="section-title">모찌고 온라인 스토어</h2>
@@ -120,7 +120,7 @@ function HomePage() {
         </div>
         <div className="menu-grid">
           <div className="menu-card animate-fade-in-up" style={{ animationDelay: '0s' }}>
-            <div className="menu-card-img" style={{ background: '#f5efe6' }}>
+            <div className="menu-card-img" style={{ background: 'var(--color-bg-warm)' }}>
               <img src={mochiBungeoppang} alt="[냉동] 단팥 모찌 붕어빵 (10개입)" />
             </div>
             <div className="menu-card-body">
@@ -130,7 +130,7 @@ function HomePage() {
             </div>
           </div>
           <div className="menu-card animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
-            <div className="menu-card-img" style={{ background: '#f5efe6' }}>
+            <div className="menu-card-img" style={{ background: 'var(--color-bg-warm)' }}>
               <img src={mochiDesserts} alt="프리미엄 모찌고 선물세트" />
             </div>
             <div className="menu-card-body">
@@ -140,7 +140,7 @@ function HomePage() {
             </div>
           </div>
           <div className="menu-card animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            <div className="menu-card-img" style={{ background: '#f5efe6' }}>
+            <div className="menu-card-img" style={{ background: 'var(--color-bg-warm)' }}>
               <img src={bubbleTea} alt="시그니처 버블 밀크티 키트" />
             </div>
             <div className="menu-card-body">

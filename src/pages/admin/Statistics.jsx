@@ -33,9 +33,9 @@ const commonOptions = {
       display: false,
     },
     tooltip: {
-      backgroundColor: '#3D2C2C',
-      titleFont: { family: "'Noto Sans KR', sans-serif", size: 13 },
-      bodyFont: { family: "'Noto Sans KR', sans-serif", size: 12 },
+      backgroundColor: '#2D2323',
+      titleFont: { family: "'Noto Serif KR', serif", size: 13 },
+      bodyFont: { family: "'Noto Serif KR', serif", size: 12 },
       padding: 12,
       cornerRadius: 8,
     },
@@ -44,15 +44,15 @@ const commonOptions = {
     x: {
       grid: { display: false },
       ticks: {
-        font: { family: "'Noto Sans KR', sans-serif", size: 11 },
-        color: '#9B8A8A',
+        font: { family: "'Noto Serif KR', serif", size: 11 },
+        color: '#998787',
       },
     },
     y: {
-      grid: { color: 'rgba(232, 220, 208, 0.3)' },
+      grid: { color: 'rgba(245, 234, 224, 0.5)' },
       ticks: {
-        font: { family: "'Noto Sans KR', sans-serif", size: 11 },
-        color: '#9B8A8A',
+        font: { family: "'Noto Serif KR', serif", size: 11 },
+        color: '#998787',
       },
     },
   },
@@ -66,11 +66,11 @@ function Statistics() {
       {
         label: '매출',
         data: monthlyRevenue.data,
-        borderColor: '#D4944C',
-        backgroundColor: 'rgba(212, 148, 76, 0.1)',
+        borderColor: '#F2994A',
+        backgroundColor: 'rgba(242, 153, 74, 0.12)',
         borderWidth: 2.5,
         pointRadius: 4,
-        pointBackgroundColor: '#D4944C',
+        pointBackgroundColor: '#F2994A',
         pointBorderColor: '#FFFFFF',
         pointBorderWidth: 2,
         fill: true,
@@ -110,7 +110,7 @@ function Statistics() {
         label: '방문자 수',
         data: hourlyVisits.data,
         backgroundColor: hourlyVisits.data.map((v) =>
-          v >= 70 ? '#D4944C' : v >= 50 ? '#E8B87C' : '#E8DCD0'
+          v >= 70 ? '#F2994A' : v >= 50 ? '#FFB380' : '#F5EAE0'
         ),
         borderRadius: 6,
         barThickness: 24,
@@ -125,7 +125,7 @@ function Statistics() {
       {
         label: '판매량',
         data: popularMenus.data,
-        backgroundColor: ['#D4944C', '#E8A87C', '#C76E3F', '#E8B87C', '#B87A35'],
+        backgroundColor: ['#F2994A', '#FFB380', '#E86A58', '#FFE4CC', '#D9822B'],
         borderRadius: 6,
         barThickness: 20,
       },
@@ -137,17 +137,17 @@ function Statistics() {
     indexAxis: 'y',
     scales: {
       x: {
-        grid: { color: 'rgba(232, 220, 208, 0.3)' },
+        grid: { color: 'rgba(245, 234, 224, 0.5)' },
         ticks: {
-          font: { family: "'Noto Sans KR', sans-serif", size: 11 },
-          color: '#9B8A8A',
+          font: { family: "'Noto Serif KR', serif", size: 11 },
+          color: '#998787',
         },
       },
       y: {
         grid: { display: false },
         ticks: {
-          font: { family: "'Noto Sans KR', sans-serif", size: 12 },
-          color: '#3D2C2C',
+          font: { family: "'Noto Serif KR', serif", size: 12 },
+          color: '#2B1D1D',
         },
       },
     },
@@ -160,7 +160,7 @@ function Statistics() {
       {
         label: 'VIP',
         data: gradeHistory.datasets.VIP,
-        borderColor: '#D4944C',
+        borderColor: '#F2994A',
         backgroundColor: 'transparent',
         borderWidth: 2,
         pointRadius: 3,
@@ -169,7 +169,7 @@ function Statistics() {
       {
         label: 'Gold',
         data: gradeHistory.datasets.Gold,
-        borderColor: '#E8B87C',
+        borderColor: '#FFB380',
         backgroundColor: 'transparent',
         borderWidth: 2,
         pointRadius: 3,
@@ -178,7 +178,7 @@ function Statistics() {
       {
         label: 'Silver',
         data: gradeHistory.datasets.Silver,
-        borderColor: '#B0B0B0',
+        borderColor: '#A3A0A0',
         backgroundColor: 'transparent',
         borderWidth: 2,
         pointRadius: 3,
@@ -187,7 +187,7 @@ function Statistics() {
       {
         label: 'Bronze',
         data: gradeHistory.datasets.Bronze,
-        borderColor: '#CD7F32',
+        borderColor: '#D9822B',
         backgroundColor: 'transparent',
         borderWidth: 2,
         pointRadius: 3,
@@ -196,7 +196,7 @@ function Statistics() {
       {
         label: '일반',
         data: gradeHistory.datasets['일반'],
-        borderColor: '#9B8A8A',
+        borderColor: '#998787',
         backgroundColor: 'transparent',
         borderWidth: 2,
         pointRadius: 3,

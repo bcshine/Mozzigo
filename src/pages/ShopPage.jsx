@@ -37,7 +37,7 @@ function ShopPage() {
   return (
     <div>
       {/* Navbar */}
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar" style={{ background: scrolled ? 'rgba(255, 255, 255, 0.95)' : '#fff', color: '#4a3f35', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar" style={{ background: scrolled ? 'rgba(255, 255, 255, 0.96)' : 'rgba(255, 255, 255, 0.90)', color: 'var(--color-text-primary)', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>
         <div className="navbar-logo" onClick={() => navigate('/')}>
           🍡 모찌고
           <span>MOCHI-GO</span>
@@ -45,7 +45,7 @@ function ShopPage() {
         <div className="navbar-links">
           <Link to="/#menu">메뉴</Link>
           <Link to="/#about">매장 안내</Link>
-          <Link to="/shop" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>쇼핑몰</Link>
+          <Link to="/shop" style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>쇼핑몰</Link>
           <a href="/#instagram">인스타그램</a>
         </div>
         <div className="navbar-actions">
@@ -70,7 +70,7 @@ function ShopPage() {
       </nav>
 
       {/* Main Content */}
-      <section className="section" style={{ paddingTop: '120px', minHeight: '70vh', background: '#fcfaf8' }}>
+      <section className="section" style={{ paddingTop: '120px', minHeight: '70vh', background: 'var(--color-bg-secondary)' }}>
         <div className="section-header">
           <div className="section-label">MOCHIGO SHOP</div>
           <h2 className="section-title">모찌고 온라인 스토어</h2>
@@ -82,14 +82,14 @@ function ShopPage() {
         <div className="menu-grid" style={{ marginTop: '2rem' }}>
           {/* Product 1 */}
           <div className="menu-card animate-fade-in-up" style={{ animationDelay: '0s' }}>
-            <div className="menu-card-img" style={{ background: '#f5efe6' }}>
+            <div className="menu-card-img" style={{ background: 'var(--color-bg-warm)' }}>
               <img src={mochiBungeoppang} alt="[냉동] 단팥 모찌 붕어빵 (10개입)" />
             </div>
             <div className="menu-card-body">
               <h3 className="menu-card-title">[냉동] 단팥 모찌 붕어빵 (10개입)</h3>
               <p className="menu-card-desc">에어프라이어에 5분만 돌리면 갓 구운 붕어빵 완성!</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1rem' }}>
-                <span className="menu-card-price" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>₩ 25,000</span>
+                <span className="menu-card-price" style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>₩ 25,000</span>
                 <button className="btn btn-primary btn-sm">장바구니 담기</button>
               </div>
             </div>
@@ -97,14 +97,14 @@ function ShopPage() {
 
           {/* Product 2 */}
           <div className="menu-card animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
-            <div className="menu-card-img" style={{ background: '#f5efe6' }}>
+            <div className="menu-card-img" style={{ background: 'var(--color-bg-warm)' }}>
               <img src={mochiDesserts} alt="프리미엄 모찌고 선물세트" />
             </div>
             <div className="menu-card-body">
               <h3 className="menu-card-title">프리미엄 모찌고 선물세트</h3>
               <p className="menu-card-desc">소중한 분들께 마음을 전하는 특별한 패키지</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1rem' }}>
-                <span className="menu-card-price" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>₩ 35,000</span>
+                <span className="menu-card-price" style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>₩ 35,000</span>
                 <button className="btn btn-primary btn-sm">장바구니 담기</button>
               </div>
             </div>
@@ -112,14 +112,14 @@ function ShopPage() {
 
           {/* Product 3 */}
           <div className="menu-card animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            <div className="menu-card-img" style={{ background: '#f5efe6' }}>
+            <div className="menu-card-img" style={{ background: 'var(--color-bg-warm)' }}>
               <img src={bubbleTea} alt="시그니처 버블 밀크티 키트" />
             </div>
             <div className="menu-card-body">
               <h3 className="menu-card-title">시그니처 버블 밀크티 키트</h3>
               <p className="menu-card-desc">집에서도 즐기는 모찌고만의 특별한 버블티</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1rem' }}>
-                <span className="menu-card-price" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>₩ 18,000</span>
+                <span className="menu-card-price" style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>₩ 18,000</span>
                 <button className="btn btn-primary btn-sm">장바구니 담기</button>
               </div>
             </div>
@@ -127,14 +127,14 @@ function ShopPage() {
           
           {/* Product 4 */}
           <div className="menu-card animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
-            <div className="menu-card-img" style={{ background: '#f5efe6' }}>
+            <div className="menu-card-img" style={{ background: 'var(--color-bg-warm)' }}>
               <img src={mochiDesserts} alt="[냉장] 수제 생과일 모찌 (6구)" />
             </div>
             <div className="menu-card-body">
               <h3 className="menu-card-title">[냉장] 수제 생과일 모찌 (6구)</h3>
               <p className="menu-card-desc">매일 아침 빚어내는 신선하고 쫄깃한 과일 모찌 세트</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1rem' }}>
-                <span className="menu-card-price" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>₩ 22,000</span>
+                <span className="menu-card-price" style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>₩ 22,000</span>
                 <button className="btn btn-primary btn-sm">장바구니 담기</button>
               </div>
             </div>

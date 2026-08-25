@@ -4,29 +4,29 @@
 
 /* --- CSS Variables --- */
 :root {
-  /* Colors - Warm Palette */
-  --color-bg-primary: #FFF8F0;
-  --color-bg-secondary: #FFF3E6;
-  --color-bg-warm: #FFECD2;
+  /* Colors - Bright Luminous Palette */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #FFFDF9;
+  --color-bg-warm: #FFF6EC;
   --color-bg-card: #FFFFFF;
-  --color-bg-admin: #FAF5F0;
-  --color-bg-sidebar: #3D2C2C;
+  --color-bg-admin: #FDFBF7;
+  --color-bg-sidebar: #2D2323;
 
-  --color-primary: #D4944C;
-  --color-primary-dark: #B87A35;
-  --color-primary-light: #E8B87C;
-  --color-secondary: #E8A87C;
-  --color-accent: #C76E3F;
+  --color-primary: #F2994A;
+  --color-primary-dark: #E07A26;
+  --color-primary-light: #FFE4CC;
+  --color-secondary: #FFB380;
+  --color-accent: #E86A58;
 
-  --color-text-primary: #3D2C2C;
-  --color-text-secondary: #6B5A5A;
-  --color-text-muted: #9B8A8A;
+  --color-text-primary: #2B1D1D;
+  --color-text-secondary: #5E4E4E;
+  --color-text-muted: #998787;
   --color-text-light: #FFFFFF;
   --color-text-on-primary: #FFFFFF;
 
-  --color-border: #E8DCD0;
-  --color-border-light: #F0E8E0;
-  --color-divider: #E8DCD0;
+  --color-border: #F5EAE0;
+  --color-border-light: #FAF2EC;
+  --color-divider: #F2E5D9;
 
   --color-success: #4CAF50;
   --color-warning: #FF9800;
@@ -34,19 +34,19 @@
   --color-info: #5B9BD5;
 
   /* Admin specific */
-  --color-admin-kpi-1: #D4944C;
-  --color-admin-kpi-2: #E8A87C;
-  --color-admin-kpi-3: #7CB5A0;
-  --color-admin-kpi-4: #C76E3F;
+  --color-admin-kpi-1: #F2994A;
+  --color-admin-kpi-2: #FFB380;
+  --color-admin-kpi-3: #52B788;
+  --color-admin-kpi-4: #E86A58;
 
-  --color-grade-vip: #D4944C;
-  --color-grade-gold: #E8B87C;
-  --color-grade-silver: #B0B0B0;
-  --color-grade-bronze: #CD7F32;
-  --color-grade-general: #9B8A8A;
+  --color-grade-vip: #F2994A;
+  --color-grade-gold: #FFB380;
+  --color-grade-silver: #A3A0A0;
+  --color-grade-bronze: #D9822B;
+  --color-grade-general: #998787;
 
   /* Typography */
-  --font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family: 'Noto Serif KR', 'Nanum Myeongjo', 'Gowun Batang', Batang, serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -208,7 +208,7 @@ input, select {
   justify-content: space-between;
   padding: 0 var(--space-2xl);
   height: 70px;
-  background: rgba(255, 248, 240, 0.85);
+  background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border-light);
@@ -216,7 +216,7 @@ input, select {
 }
 
 .navbar.scrolled {
-  background: rgba(255, 248, 240, 0.95);
+  background: rgba(255, 255, 255, 0.97);
   box-shadow: var(--shadow-sm);
 }
 
@@ -363,9 +363,9 @@ input, select {
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(61, 44, 44, 0.65) 0%,
-    rgba(61, 44, 44, 0.35) 50%,
-    rgba(212, 148, 76, 0.2) 100%
+    rgba(43, 29, 29, 0.50) 0%,
+    rgba(43, 29, 29, 0.25) 50%,
+    rgba(242, 153, 74, 0.25) 100%
   );
   z-index: 1;
 }
